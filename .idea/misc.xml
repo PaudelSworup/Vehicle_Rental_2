@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/drawable/card_design.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/drawable/custom_button.xml" value="0.1675" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/drawable/ic_baseline_notifications_active_24.xml" value="0.1675" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/drawable/ic_menu_svgrepo_com.xml" value="0.1675" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/drawable/indexbutton.xml" value="0.1045" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/drawable/input.xml" value="0.1675" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/drawable/selected_image_shadow.xml" value="0.105" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/drawable/shadow_effect.xml" value="0.11" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/layout-v28/activity_detail.xml" value="0.23229166666666667" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/layout/activity_dashboard.xml" value="0.23229166666666667" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/layout/activity_detail.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/layout/activity_index.xml" value="0.136" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/layout/activity_indexuser.xml" value="0.6666666666666666" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/layout/activity_login.xml" value="0.23229166666666667" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/layout/activity_register.xml" value="0.2875" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/layout/activity_user_dashboard.xml" value="0.7492354740061162" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/layout/activity_user_page.xml" value="0.6" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/layout/custom_list_layout.xml" value="0.39908256880733944" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/layout/header.xml" value="1.0324074074074074" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/layout/headerfile.xml" value="1.5928571428571427" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/layout/slide_item.xml" value="0.7986111111111112" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/menu/adminmenu.xml" value="1.0324074074074074" />
+        <entry key="..\:/AndroidStudioProjects/VehicleRental/app/src/main/res/menu/sidemenu.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/VehicleRental/app/src/main/res/drawable/button_style_register.xml" value="0.20462962962962963" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/VehicleRental/app/src/main/res/drawable/custom_button.xml" value="0.1" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/VehicleRental/app/src/main/res/drawable/garient.xml" value="0.20462962962962963" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/VehicleRental/app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.20092592592592592" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/VehicleRental/app/src/main/res/drawable/ic_baseline_keyboard_arrow_left_24.xml" value="0.20092592592592592" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/VehicleRental/app/src/main/res/drawable/login_btn.xml" value="0.20462962962962963" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/VehicleRental/app/src/main/res/layout/activity_detail.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/VehicleRental/app/src/main/res/layout/activity_index.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/VehicleRental/app/src/main/res/layout/activity_indexuser.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/VehicleRental/app/src/main/res/layout/activity_login.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/VehicleRental/app/src/main/res/layout/activity_main.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/VehicleRental/app/src/main/res/layout/activity_register.xml" value="0.536" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/VehicleRental/app/src/main/res/layout/activity_user_page.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/VehicleRental/app/src/main/res/layout/custom_list_layout.xml" value="0.23229166666666667" />
+        <entry key="..\:/VehicalRental/app/src/main/res/layout/activity_admin_panel.xml" value="0.24547101449275363" />
+        <entry key="..\:/VehicalRental/app/src/main/res/layout/activity_detail.xml" value="0.264" />
+        <entry key="..\:/VehicalRental/app/src/main/res/layout/activity_index.xml" value="0.24547101449275363" />
+        <entry key="..\:/VehicalRental/app/src/main/res/layout/activity_indexuser.xml" value="0.24547101449275363" />
+        <entry key="..\:/VehicalRental/app/src/main/res/layout/activity_login.xml" value="0.24547101449275363" />
+        <entry key="..\:/VehicalRental/app/src/main/res/layout/activity_main.xml" value="0.24547101449275363" />
+        <entry key="..\:/VehicalRental/app/src/main/res/layout/activity_register.xml" value="0.24547101449275363" />
+        <entry key="..\:/VehicalRental/app/src/main/res/layout/activity_user_dashboard.xml" value="0.24547101449275363" />
+        <entry key="..\:/VehicalRental/app/src/main/res/layout/activity_user_page.xml" value="0.24547101449275363" />
+        <entry key="..\:/VehicalRental/app/src/main/res/layout/admin_list.xml" value="0.24547101449275363" />
+        <entry key="..\:/VehicalRental/app/src/main/res/layout/custom_list_layout.xml" value="0.24547101449275363" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
