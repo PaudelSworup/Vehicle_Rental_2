@@ -41,11 +41,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Vehicle mov = movie.get(position);
-        holder.vehicleName.setText(movie.get(position).getName());
-        holder.vehicleRating.setText(movie.get(position).getRating());
+        String capital = mov.getName();
+        String output = capital.substring(0, 1).toUpperCase() + capital.substring(1);
+        holder.vehicleName.setText(output);
+//        holder.vehicleRating.setText(movie.get(position).getRating());
         holder.contactNumber.setText(movie.get(position).getPhone());
         holder.vehicleType.setText(movie.get(position).getType());
-        holder.vehicleCategory.setText(movie.get(position).getCategory());
+//        holder.vehicleCategory.setText(movie.get(position).getCategory());
         holder.ratingBar.setRating(Float.parseFloat(movie.get(position).getRating()));
         Picasso.get().load(movie.get(position).getImage()).into(holder.vehicleImage);
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
@@ -76,19 +78,19 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
 
     public class ViewHolder extends  RecyclerView.ViewHolder{
-        TextView vehicleName, vehicleRating, vehicleType, contactNumber, vehicleCategory;
+        TextView vehicleName,vehicleType, contactNumber, vehicleCategory;
         RatingBar ratingBar;
         ImageView vehicleImage;
         RelativeLayout relativeLayout;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             vehicleName = itemView.findViewById(R.id.txtTitle);
-            vehicleRating = itemView.findViewById(R.id.txtRating);
+//            vehicleRating = itemView.findViewById(R.id.txtRating);
             contactNumber = itemView.findViewById(R.id.txtPhone);
             vehicleType = itemView.findViewById(R.id.txtType);
             ratingBar = itemView.findViewById(R.id.rating_star);
             vehicleImage = itemView.findViewById(R.id.image);
-            vehicleCategory = itemView.findViewById(R.id.txtCat);
+//            vehicleCategory = itemView.findViewById(R.id.txtCat);
             relativeLayout = itemView.findViewById(R.id.main_layout);
 
         }

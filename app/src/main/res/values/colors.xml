@@ -17,5 +17,6 @@
     <color name="input_color">#e1e4e8</color>
     <color name="card_color">#222326</color>
     <color name="rating_color">#1DC18E</color>
+    <color name="success">#62B862</color>
 
 </resources>

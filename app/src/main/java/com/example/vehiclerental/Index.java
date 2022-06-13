@@ -58,6 +58,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
@@ -72,14 +73,12 @@ import java.util.UUID;
 
 public class Index extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     ImageView img;
-    FirebaseFirestore dbRoot;
-    DocumentReference documentReference;
     FloatingActionButton camera;
     private FirebaseAuth firebaseAuth;
     EditText vehicleName , carDetail, vehicleRating, vehicleType, contactNumber, category;
     ActivityResultLauncher<String> imgContent;
     Uri imgUri;
-    Button Submit,logout;
+    Button Submit;
     Bitmap bitmap;
     String imageEncode;
     DrawerLayout drawerLayout;
@@ -103,21 +102,15 @@ public class Index extends AppCompatActivity implements NavigationView.OnNavigat
         drawerLayout = findViewById(R.id.drawerlayout);
         toolbar = findViewById(R.id.toolbar);
 
-
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_open,R.string.navigation_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         firebaseAuth = FirebaseAuth.getInstance();
         userID = firebaseAuth.getCurrentUser().getUid();
         Toast.makeText(getApplicationContext(),userID,Toast.LENGTH_SHORT).show();
-
-
-
         navigationView = findViewById(R.id.navigationview);
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
-
-
 
         imgContent = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
@@ -126,7 +119,6 @@ public class Index extends AppCompatActivity implements NavigationView.OnNavigat
                     img.setImageURI(result);
                     imgUri = result;
                     encodeImage(imgUri);
-
                 }
             }
         });
@@ -150,6 +142,7 @@ public class Index extends AppCompatActivity implements NavigationView.OnNavigat
             @Override
             public void onClick(View view) {
                 uploadData();
+
             }
         });
 
@@ -163,11 +156,11 @@ public class Index extends AppCompatActivity implements NavigationView.OnNavigat
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//         item.setChecked(true);
         drawerLayout.closeDrawers();
         int id = item.getItemId();
         if(id == R.id.home_menu){
             Toast.makeText(Index.this, "home is clicked",Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(getApplicationContext(),Index.class));
         }
 
         if(id == R.id.dashboard_menu){
@@ -183,19 +176,12 @@ public class Index extends AppCompatActivity implements NavigationView.OnNavigat
         if(id == R.id.logout_menu){
             Toast.makeText(Index.this, "logout is clicked",Toast.LENGTH_SHORT).show();
             firebaseAuth.signOut();
+            finishAffinity();
             startActivity(new Intent(getApplicationContext(),Login_Activity.class));
             finish();
         }
         return true;
     }
-
-
-
-
-
-
-
-
 
 
     private void selectImage() {
@@ -215,7 +201,6 @@ public class Index extends AppCompatActivity implements NavigationView.OnNavigat
         }
     }
 
-
     private void uploadData(){
         String vehicle_name = vehicleName.getText().toString();
         String vehicle_detail = carDetail.getText().toString();
@@ -224,8 +209,6 @@ public class Index extends AppCompatActivity implements NavigationView.OnNavigat
         String contact_vehicle = contactNumber.getText().toString();
         String vehicle_category = category.getText().toString();
         String contact_regex = "^[0-9]+$";
-
-
 
         if(imgUri == null){
             Context context = getApplicationContext();
@@ -283,9 +266,9 @@ public class Index extends AppCompatActivity implements NavigationView.OnNavigat
 
 
 
-
-//        String url = "http://192.168.1.67/Api/post.php";
-         String url = "http://192.168.1.68/Api/post.php";
+        String url = "http://192.168.1.70/Api/post.php";
+//        String url = "http://192.168.1.69/Api/post.php";
+//         String url = "http://192.168.1.68/Api/post.php";
 //        String url = "http://10.0.2.2/api/api.php";
 
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -348,7 +331,6 @@ public class Index extends AppCompatActivity implements NavigationView.OnNavigat
                 .setSmallIcon(R.drawable.ic_baseline_car_rental_24)
                 .setLargeIcon(bitmap)
                 .setTicker("Hearty365")
-                //     .setPriority(Notification.PRIORITY_MAX)
                 .setContentTitle(vehicle_name)
                 .setContentText(vehicle_detail)
                 .setStyle(new NotificationCompat.BigPictureStyle()
@@ -356,5 +338,7 @@ public class Index extends AppCompatActivity implements NavigationView.OnNavigat
                 .setContentInfo("Info");
 
         notificationManager.notify(/*notification id*/1, notificationBuilder.build());
+
+
     }
 }

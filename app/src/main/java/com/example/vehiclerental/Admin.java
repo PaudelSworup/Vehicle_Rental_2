@@ -4,16 +4,18 @@ public class Admin {
     private String adminName;
     private String adminRating;
     private String imageAdmin;
+    private String source;
     private String destination;
     private String rentalTime;
     private String firebase_id;
 
     public Admin(){}
 
-    public Admin(String adminName, String adminRating, String imageAdmin, String destination, String rentalTime, String firebase_id) {
+    public Admin(String adminName, String adminRating, String imageAdmin, String source, String destination, String rentalTime, String firebase_id) {
         this.adminName = adminName;
         this.adminRating = adminRating;
         this.imageAdmin = imageAdmin;
+        this.source = source;
         this.destination = destination;
         this.rentalTime = rentalTime;
         this.firebase_id = firebase_id;
@@ -41,6 +43,13 @@ public class Admin {
 
     public void setImageAdmin(String imageAdmin) {
         this.imageAdmin = imageAdmin;
+    }
+
+    public String getSource() {
+        return source;
+    }
+    public void setSource(String source) {
+        this.source = source;
     }
 
     public String getDestination() {

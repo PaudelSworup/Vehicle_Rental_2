@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="40dp"
+    android:layout_marginTop="10dp"
     android:layout_marginStart="8dp"
     android:layout_marginBottom="8dp"
     app:cardBackgroundColor="@color/card_color"
@@ -19,13 +19,13 @@
         <ImageView
             android:id="@+id/AdminImage"
             android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_height="165dp"
             android:scaleType="fitXY"
             android:src="@mipmap/ic_launcher"
             tools:ignore="ContentDescription" />
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="170dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_toEndOf="@id/AdminImage">
@@ -46,9 +46,23 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
+<!--            <TextView-->
+<!--                android:id="@+id/ratingTxt"-->
+<!--                android:layout_width="fill_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/nameTxt"-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:layout_alignParentStart="true"-->
+<!--                android:layout_marginTop="4dp"-->
+<!--                android:ellipsize="end"-->
+<!--                android:fontFamily="sans-serif-medium"-->
+<!--                android:maxLines="2"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="14sp" />-->
+
             <TextView
-                android:id="@+id/ratingTxt"
-                android:layout_width="fill_parent"
+                android:id="@+id/Adminsource"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/nameTxt"
                 android:textAlignment="textStart"
@@ -62,9 +76,9 @@
 
             <TextView
                 android:id="@+id/Admindestination"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/ratingTxt"
+                android:layout_below="@id/Adminsource"
                 android:textAlignment="textStart"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="4dp"
@@ -76,7 +90,7 @@
 
             <TextView
                 android:id="@+id/rentalTime"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/Admindestination"
                 android:textAlignment="textStart"
@@ -90,8 +104,8 @@
 
             <TextView
                 android:id="@+id/firebaseID"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
                 android:layout_below="@id/rentalTime"
                 android:textAlignment="textStart"
                 android:layout_alignParentStart="true"
@@ -100,15 +114,14 @@
                 android:fontFamily="sans-serif-medium"
                 android:maxLines="2"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
-
-
+                android:textSize="13sp" />
 
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_below="@id/AdminImage"
             android:orientation="vertical">
 

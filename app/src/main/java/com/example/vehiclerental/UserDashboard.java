@@ -65,7 +65,9 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         if(id == R.id.logout_menu){
             Toast.makeText(UserDashboard.this, "logout is clicked",Toast.LENGTH_SHORT).show();
             firebaseAuth.signOut();
+            finishAffinity();
             startActivity(new Intent(getApplicationContext(),Login_Activity.class));
+            finish();
         }
         return true;
     }

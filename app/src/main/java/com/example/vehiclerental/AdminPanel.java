@@ -35,12 +35,16 @@ import java.util.List;
 public class AdminPanel extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     RecyclerView recyclerView;
     List<Admin> vehicles;
-    private String JSON_URL = "http://192.168.1.68/Api/Adminget.php";
-    private String imageUrl = "http://192.168.1.68/Api/images/";
+//    private String JSON_URL = "http://192.168.1.68/Api/Adminget.php";
+//    private String imageUrl = "http://192.168.1.68/Api/images/";
 
 
-//    private String JSON_URL = "http://192.168.1.67/Api/Adminget.php";
-//    private String imageUrl = "http://192.168.1.67/Api/images/";
+    private String JSON_URL = "http://192.168.1.70/Api/Adminget.php";
+    private String imageUrl = "http://192.168.1.70/Api/images/";
+
+
+//    private String JSON_URL = "http://192.168.1.69/Api/Adminget.php";
+//    private String imageUrl = "http://192.168.1.69/Api/images/";
 
     AdminAdapter adapter;
     LinearLayoutManager llm ;
@@ -84,11 +88,11 @@ public class AdminPanel extends AppCompatActivity implements NavigationView.OnNa
         int id = item.getItemId();
         if(id == R.id.home_menu){
             Toast.makeText(AdminPanel.this, "home is clicked",Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(getApplicationContext(),Index.class));
         }
 
         if(id == R.id.dashboard_menu){
             Toast.makeText(AdminPanel.this, "dash is clicked",Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(getApplicationContext(),UserDashboard.class));
         }
 
         if(id == R.id.list_menu){
@@ -99,7 +103,9 @@ public class AdminPanel extends AppCompatActivity implements NavigationView.OnNa
         if(id == R.id.logout_menu){
             Toast.makeText(AdminPanel.this, "logout is clicked",Toast.LENGTH_SHORT).show();
             firebaseAuth.signOut();
+            finishAffinity();
             startActivity(new Intent(getApplicationContext(),Login_Activity.class));
+            finish();
         }
         return true;
     }
@@ -122,6 +128,7 @@ public class AdminPanel extends AppCompatActivity implements NavigationView.OnNa
                             admin.setAdminName(jsonObject1.getString("name").toString());
                             admin.setImageAdmin(jsonObject1.getString("image").toString());
                             admin.setAdminRating(jsonObject1.getString("rating").toString());
+                            admin.setSource(jsonObject1.getString("source").toString());
                             admin.setDestination(jsonObject1.getString("destination").toString());
                             admin.setRentalTime(jsonObject1.getString("rentalday").toString());
                             admin.setFirebase_id(jsonObject1.getString("firebase_id").toString());

@@ -60,77 +60,28 @@
 
     </androidx.cardview.widget.CardView>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <AutoCompleteTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-
-        <AutoCompleteTextView
-            android:id="@+id/destination"
-            android:layout_width="140dp"
-            android:layout_height="59dp"
-            android:layout_marginEnd="4dp"
-            android:background="@drawable/input"
-            android:completionThreshold="1"
-            android:hint="@string/dest"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.333" />
-
-        <AutoCompleteTextView
-            android:id="@+id/source"
-            android:layout_width="132dp"
-            android:layout_height="61dp"
-            android:background="@drawable/input"
-            android:completionThreshold="1"
-            android:hint="@string/source"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/destination"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-<!--    <AutoCompleteTextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:id="@+id/destination"-->
-<!--        android:hint="@string/dest"-->
-<!--        android:textColorHint="@color/black"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:background="@drawable/input"-->
-<!--        android:textColor="@color/black"-->
-<!--        android:completionThreshold="1"/>-->
-
-<!--    <EditText-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:id="@+id/days"-->
-<!--        android:hint="@string/days"-->
-<!--        android:textColorHint="@color/black"-->
-<!--        android:background="@drawable/input"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:textColor="@color/black"-->
-<!--        android:inputType="number" />-->
+        android:id="@+id/destination"
+        android:hint="@string/dest"
+        android:textColorHint="@color/black"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/input"
+        android:textColor="@color/black"
+        android:completionThreshold="1"/>
 
     <EditText
-        android:id="@+id/days"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/input"
+        android:id="@+id/days"
         android:hint="@string/days"
-        android:inputType="number"
-        android:layout_marginTop="2dp"
+        android:textColorHint="@color/black"
+        android:background="@drawable/input"
+        android:layout_marginTop="8dp"
         android:textColor="@color/black"
-        android:textColorHint="@color/black" />
+        />
 
     <TextView
         android:textColor="@color/white"
@@ -153,7 +104,7 @@
         android:id="@+id/txtType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="20dp"
         android:textSize="18sp"
         android:textColor="@color/white"
         android:fontFamily="sans-serif" />
@@ -162,7 +113,7 @@
         android:id="@+id/txtPhoneNum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="20dp"
         android:textSize="18sp"
         android:textColor="@color/white"
         android:fontFamily="sans-serif"

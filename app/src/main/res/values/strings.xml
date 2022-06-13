@@ -18,6 +18,8 @@
     <string name="todo">todo</string>
     <string name="android">Android</string>
     <string name="rating">Vehicle Rating</string>
+    <string name="Accept">Accept</string>
+    <string name="Reject">Reject</string>
     <string name="rate">Ratings</string>
     <string name="vehicle_type">Type</string>
     <string name="contact">Enter contact number</string>
