@@ -1,6 +1,7 @@
 package com.example.vehiclerental;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,6 +55,13 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.ViewHolder> 
                 AdminVehicleList.add(admin.getDestination());
                 AdminVehicleList.add(admin.getFirebase_id());
                 AdminVehicleList.add(admin.getImageAdmin());
+                AdminVehicleList.add(admin.getAdminRating());
+                AdminVehicleList.add(admin.getRentalTime());
+                AdminVehicleList.add(admin.getAdminId());
+                Intent in  = new Intent(context, AdminDetail.class);
+                in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                in.putStringArrayListExtra("vehicles_Rental",AdminVehicleList);
+                context.startActivity(in);
             }
         });
     }

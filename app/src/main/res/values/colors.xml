@@ -18,5 +18,6 @@
     <color name="card_color">#222326</color>
     <color name="rating_color">#1DC18E</color>
     <color name="success">#62B862</color>
+    <color name="admin">#99badd</color>
 
 </resources>

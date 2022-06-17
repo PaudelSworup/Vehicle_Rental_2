@@ -1,6 +1,7 @@
 package com.example.vehiclerental;
 
 public class Admin {
+    private String adminId;
     private String adminName;
     private String adminRating;
     private String imageAdmin;
@@ -19,6 +20,14 @@ public class Admin {
         this.destination = destination;
         this.rentalTime = rentalTime;
         this.firebase_id = firebase_id;
+    }
+
+    public String getAdminId() {
+        return adminId;
+    }
+
+    public void setAdminId(String adminId) {
+        this.adminId = adminId;
     }
 
     public String getAdminName() {

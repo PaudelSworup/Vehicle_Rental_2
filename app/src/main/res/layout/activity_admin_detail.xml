@@ -5,20 +5,184 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    app:cardBackgroundColor="@color/card_color"
+    app:cardBackgroundColor="@color/black"
     >
 
     <RelativeLayout
+        android:id="@+id/Admin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardBackgroundColor="@color/grid">
 
         <ImageView
-            android:id="@+id/AdminDetailImage"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:id="@+id/adminImage"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:scaleType="fitXY"
             android:src="@mipmap/ic_launcher"
             tools:ignore="ContentDescription" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_toEndOf="@id/adminImage">
+
+
+            <TextView
+                android:id="@+id/adminTxtTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-black"
+                android:maxLines="2"
+                android:text="Buggati"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/adminRental"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="79dp"
+                android:layout_marginTop="16dp"
+                android:layout_toRightOf="@+id/adminTxtTitle"
+                android:gravity="center_horizontal"
+                android:text="5 days"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/adminTxtSource"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/adminTxtTitle"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="4dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="SMCQ5+JG6, Changunarayan 44600, Nepal"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/adminTxtDest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/adminTxtSource"
+                android:layout_marginTop="4dp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center_horizontal"
+                android:text="Pokhara"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/Adminstar"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_below="@id/adminTxtSource"
+                android:layout_marginLeft="64dp"
+                android:layout_marginTop="0dp"
+                android:layout_toRightOf="@id/adminTxtDest"
+                android:background="@drawable/background"
+                android:gravity="center_horizontal" />
+
+            <TextView
+                android:id="@+id/oneRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/adminTxtSource"
+                android:layout_marginTop="2.5dp"
+                android:layout_toRightOf="@id/Adminstar"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center_horizontal"
+                android:text="5.0"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+<!--            <TextView-->
+<!--                android:id="@+id/firebaseAdmin"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/oneRating"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:text="x6oA43kLFia01iIrD4EZneR7x4l2"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="15sp" />-->
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_below="@id/adminImage"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/white">
+
+            </View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <LinearLayout
+                    android:id="@+id/layout_like"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    tools:ignore="UselessParent">
+
+
+                 <Button
+                     android:id="@+id/accept"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:background="@color/success"
+                     android:textColor="@color/white"
+                     android:textSize="16sp"
+                     android:text="@string/Accept"/>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <Button
+                            android:id="@+id/reject"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/toolbar_color"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:text="@string/Reject"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.887"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.3" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
     </RelativeLayout>
+
 </androidx.cardview.widget.CardView>
