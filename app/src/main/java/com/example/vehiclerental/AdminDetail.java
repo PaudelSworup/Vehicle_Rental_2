@@ -27,9 +27,10 @@ public class AdminDetail extends AppCompatActivity {
     ImageView adminImage;
     TextView carName, carSource, carDestination, rating, carRental;
     Button accept, reject;
-    String name,source,dest,rate,rent, imgUrl, fid;
-    String url = "http://192.168.1.67/Api/Delete.php";
+    String name,source,dest,rate,rent, imgUrl, id;
+//    String url = "http://192.168.1.67/Api/Delete.php";
 
+    String url = "http://192.168.1.70/Api/Delete.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,7 @@ public class AdminDetail extends AppCompatActivity {
         imgUrl = vehicles.get(4);
         rate = vehicles.get(5);
         rent  = vehicles.get(6);
-        fid = vehicles.get(3);
+        id = vehicles.get(7);
         Picasso.get().load(imgUrl).into(adminImage);
         carName.setText(name);
         carSource.setText(source);
@@ -81,10 +82,7 @@ public class AdminDetail extends AppCompatActivity {
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                if(response.equalsIgnoreCase("deleted")){
                     Toast.makeText(AdminDetail.this,"Rejected",Toast.LENGTH_LONG).show();
-                }
-
             }
         }, new Response.ErrorListener() {
             @Override
@@ -96,7 +94,7 @@ public class AdminDetail extends AppCompatActivity {
             protected Map<String,String> getParams() throws AuthFailureError {
 
                 Map<String ,String> params = new HashMap<>();
-                params.put("id",fid);
+                params.put("id",id);
                 return params;
 
             }

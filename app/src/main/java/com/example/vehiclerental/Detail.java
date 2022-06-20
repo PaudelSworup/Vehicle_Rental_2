@@ -67,7 +67,7 @@ public class Detail extends AppCompatActivity {
     ArrayAdapter<String> arrayAdapter;
     String[] items = {"Kailash Mansarovar","Pokhara","Janaki Mandir", "Chitwan(Nepal’s Wildlife)", "Lumbini",
             "Namche Bazar", "Gosaikunda", "Gorkha", "Nuwakot", "Manakamana", "Ghorepani", "Ghandruk", "Davis fall",
-            "Mugu", "Manang", "MUstang", "Taplejung", "Illam", "Sindhuli", "Okhaldhunga","Dang","Makawanpur(Daman)",
+            "Mugu", "Manang", "Mustang", "Taplejung", "Illam", "Sindhuli", "Okhaldhunga","Dang","Makawanpur(Daman)",
             "Bardiya National park(Jungle Safari)", "Phoksundo lake", "Shey Gompa", "Shey Phoksundo National Park",
             "Dho Tarap valley", "Suligad waterfall", "Jakhera Lake(Dang)", "Rasuwa", "Panchakot Dham(Baglung)", "Kalika Temple(Baglung",
             "Kalinchwok Bhagwati temple(Dolakha)", " Dolakha Bhimsen Temple", " Jiri(Dolokha)", "Gaurishankar conservation area(Dolokha)",
@@ -158,9 +158,9 @@ public class Detail extends AppCompatActivity {
                     return;
                 }
 
-//                String url = "http://192.168.1.67/Api/vehicleRequest.php";
+                String url = "http://192.168.1.70/Api/vehicleRequest.php";
 
-                String url = "http://192.168.1.69/Api/vehicleRequest.php";
+//                String url = "http://192.168.1.69/Api/vehicleRequest.php";
 
 //                    String url = "http://192.168.1.68/Api/vehicleRequest.php";
                 StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {

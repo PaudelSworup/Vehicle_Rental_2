@@ -16,8 +16,8 @@
 
         <ImageView
             android:id="@+id/adminImage"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="108dp"
+            android:layout_height="128dp"
             android:scaleType="fitXY"
             android:src="@mipmap/ic_launcher"
             tools:ignore="ContentDescription" />
@@ -25,8 +25,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_margin="@dimen/my_view_margin"
             android:layout_toEndOf="@id/adminImage">
 
 
@@ -36,7 +35,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
                 android:ellipsize="end"
                 android:fontFamily="sans-serif-black"
                 android:maxLines="2"
@@ -49,14 +47,14 @@
                 android:id="@+id/adminRental"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="79dp"
+                android:layout_marginLeft="@dimen/my_left_margin"
                 android:layout_marginTop="16dp"
                 android:layout_toRightOf="@+id/adminTxtTitle"
                 android:gravity="center_horizontal"
                 android:text="5 days"
                 android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/adminTxtSource"
@@ -87,7 +85,7 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_below="@id/adminTxtSource"
-                android:layout_marginLeft="64dp"
+                android:layout_marginLeft="@dimen/my_left_margin"
                 android:layout_marginTop="0dp"
                 android:layout_toRightOf="@id/adminTxtDest"
                 android:background="@drawable/background"

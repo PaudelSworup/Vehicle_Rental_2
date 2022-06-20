@@ -39,6 +39,9 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Admin admin = movie.get(position);
+        if(admin.getAdminName() == null){
+            holder.vehicleName.setText("Not found");
+        }
         holder.vehicleName.setText(movie.get(position).getAdminName());
         holder.vehicleSource.setText(movie.get(position).getSource());
         holder.vehicleDestination.setText(movie.get(position).getDestination());

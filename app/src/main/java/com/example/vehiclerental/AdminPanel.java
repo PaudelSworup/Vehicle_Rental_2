@@ -29,18 +29,19 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AdminPanel extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     RecyclerView recyclerView;
     List<Admin> vehicles;
-    private String JSON_URL = "http://192.168.1.67/Api/Adminget.php";
-    private String imageUrl = "http://192.168.1.67/Api/images/";
+//    private String JSON_URL = "http://192.168.1.67/Api/Adminget.php";
+//    private String imageUrl = "http://192.168.1.67/Api/images/";
 
 
-//    private String JSON_URL = "http://192.168.1.70/Api/Adminget.php";
-//    private String imageUrl = "http://192.168.1.70/Api/images/";
+    private String JSON_URL = "http://192.168.1.70/Api/Adminget.php";
+    private String imageUrl = "http://192.168.1.70/Api/images/";
 
 
 //    private String JSON_URL = "http://192.168.1.69/Api/Adminget.php";
@@ -78,7 +79,7 @@ public class AdminPanel extends AppCompatActivity implements NavigationView.OnNa
         navigationView = findViewById(R.id.navigationview);
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
-        getData();
+        getData(JSON_URL);
     }
 
     @Override
@@ -92,12 +93,11 @@ public class AdminPanel extends AppCompatActivity implements NavigationView.OnNa
         }
 
         if(id == R.id.dashboard_menu){
-            Toast.makeText(AdminPanel.this, "dash is clicked",Toast.LENGTH_SHORT).show();
+            Toast.makeText(AdminPanel.this, "dashboard is clicked",Toast.LENGTH_SHORT).show();
         }
 
         if(id == R.id.list_menu){
             Toast.makeText(AdminPanel.this, "list is clicked",Toast.LENGTH_SHORT).show();
-
         }
 
         if(id == R.id.logout_menu){
@@ -110,42 +110,47 @@ public class AdminPanel extends AppCompatActivity implements NavigationView.OnNa
         return true;
     }
 
-    public void getData() {
-        StringRequest request = new StringRequest(Request.Method.GET, JSON_URL, new Response.Listener<String>() {
+    public void getData(String url) {
+        if(url == null){
+            Toast.makeText(getApplicationContext(),"null null", Toast.LENGTH_SHORT).show();
+        }
+        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onResponse(String response) {
-                if (response.equalsIgnoreCase("not null")) {
-                    Log.d("Success", response.toString());
-                    try {
-                        JSONObject jsonObject = new JSONObject(response.substring(response.indexOf("{"), response.lastIndexOf("}") + 1));
+                        Log.d("Success", response.toString());
+                        if(response.length() == 0){
+                            Toast.makeText(getApplicationContext(),"User didn't request any Vehicle",Toast.LENGTH_SHORT).show();
+                            return;
+                        }else {
 
-                        Log.d("Success object", jsonObject.toString());
-                        JSONArray jsonArray = jsonObject.getJSONArray("results");
-                        if (jsonArray.length() > 0) {
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                                Admin admin = new Admin();
-                                admin.setAdminId(jsonObject1.getString("id").toString());
-                                admin.setAdminName(jsonObject1.getString("name").toString());
-                                admin.setImageAdmin(jsonObject1.getString("image").toString());
-                                admin.setAdminRating(jsonObject1.getString("rating").toString());
-                                admin.setSource(jsonObject1.getString("source").toString());
-                                admin.setDestination(jsonObject1.getString("destination").toString());
-                                admin.setRentalTime(jsonObject1.getString("rentalday").toString());
-                                admin.setFirebase_id(jsonObject1.getString("firebase_id").toString());
-                                vehicles.add(admin);
+                            try {
+                                String res = response.substring(response.indexOf("{"), response.lastIndexOf("}") + 1);
+                                JSONObject jsonObject = new JSONObject(res);
+                                Log.d("Success object", jsonObject.toString());
+                                JSONArray jsonArray = jsonObject.getJSONArray("results");
+                                if (jsonArray.length() > 0) {
+                                    for (int i = 0; i < jsonArray.length(); i++) {
+                                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                                        Admin admin = new Admin();
+                                        admin.setAdminId(jsonObject1.getString("id").toString());
+                                        admin.setAdminName(jsonObject1.getString("name").toString());
+                                        admin.setImageAdmin(jsonObject1.getString("image").toString());
+                                        admin.setAdminRating(jsonObject1.getString("rating").toString());
+                                        admin.setSource(jsonObject1.getString("source").toString());
+                                        admin.setDestination(jsonObject1.getString("destination").toString());
+                                        admin.setRentalTime(jsonObject1.getString("rentalday").toString());
+                                        admin.setFirebase_id(jsonObject1.getString("firebase_id").toString());
+                                        vehicles.add(admin);
+                                    }
+                                    adapter.notifyDataSetChanged();
+                                }
+                            } catch (JSONException e) {
+                                Log.e("error is ", "my json " + e);
+                                e.printStackTrace();
                             }
-                            adapter.notifyDataSetChanged();
                         }
-                    } catch (JSONException e) {
-                        Log.e("error is ", "my json " + e);
-                        e.printStackTrace();
-                    }
 
-                }else {
-                        Toast.makeText(AdminPanel.this, "null data",Toast.LENGTH_LONG).show();
-                }
             }
         }, new Response.ErrorListener() {
             @Override

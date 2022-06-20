@@ -164,11 +164,10 @@ public class Index extends AppCompatActivity implements NavigationView.OnNavigat
         }
 
         if(id == R.id.dashboard_menu){
-            Toast.makeText(Index.this, "dash is clicked",Toast.LENGTH_SHORT).show();
+            Toast.makeText(Index.this, "dashboard is clicked",Toast.LENGTH_SHORT).show();
         }
 
         if(id == R.id.list_menu){
-            Toast.makeText(Index.this, "list is clicked",Toast.LENGTH_SHORT).show();
             startActivity(new Intent(getApplicationContext(),AdminPanel.class));
 
         }
@@ -266,9 +265,9 @@ public class Index extends AppCompatActivity implements NavigationView.OnNavigat
 
 
 
-//        String url = "http://192.168.1.70/Api/post.php";
+        String url = "http://192.168.1.70/Api/post.php";
 //        String url = "http://192.168.1.69/Api/post.php";
-         String url = "http://192.168.1.67/Api/post.php";
+//         String url = "http://192.168.1.67/Api/post.php";
 //        String url = "http://10.0.2.2/api/api.php";
 
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
