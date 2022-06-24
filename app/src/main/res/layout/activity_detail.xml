@@ -15,10 +15,10 @@
         android:layout_width="match_parent"
         android:layout_height="182dp"
         app:cardElevation="50dp"
-        app:cardBackgroundColor="@color/white"
+        app:cardBackgroundColor="@color/black"
         app:cardCornerRadius="20dp">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -33,21 +33,37 @@
 
             <TextView
                 android:id="@+id/txtName"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/imageView"
                 android:layout_height="wrap_content"
                 android:text="cars"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:layout_marginTop="5dp"
                 android:textSize="20sp"
-                android:textColor="#1E1E1E"
+                android:textColor="@color/white"
                 android:fontFamily="sans-serif-black"/>
 
+
+            <EditText
+                android:id="@+id/datePicker"
+                android:layout_width="139dp"
+                android:layout_height="61dp"
+                android:layout_below="@id/imageView"
+                android:layout_marginLeft="139dp"
+                android:layout_marginTop="1dp"
+                android:layout_toRightOf="@+id/txtName"
+                android:inputType="date"
+                android:completionThreshold="1"
+                android:hint="@string/pickDate"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
 
             <RatingBar
                 android:id="@+id/rating_star"
                 style="?android:attr/ratingBarStyleSmall"
                 android:layout_width="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="start"
+                android:layout_below="@+id/txtName"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:focusable="true"
@@ -56,32 +72,44 @@
                 android:stepSize="0.5"/>
 
 
-        </LinearLayout>
+
+        </RelativeLayout>
+
 
     </androidx.cardview.widget.CardView>
 
-
     <AutoCompleteTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/destination"
-        android:hint="@string/dest"
-        android:textColorHint="@color/black"
+        android:layout_width="262dp"
+        android:layout_height="49dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/input"
+        android:completionThreshold="1"
+        android:hint="@string/dest"
         android:textColor="@color/black"
-        android:completionThreshold="1"/>
+        android:textColorHint="@color/black" />
+
+    <!--    <AutoCompleteTextView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:id="@+id/destination"-->
+    <!--        android:hint="@string/dest"-->
+    <!--        android:textColorHint="@color/black"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:background="@drawable/input"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        android:completionThreshold="1"/>-->
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/days"
-        android:hint="@string/days"
-        android:textColorHint="@color/black"
-        android:background="@drawable/input"
+        android:layout_width="269dp"
+        android:layout_height="49dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/input"
+        android:hint="@string/days"
+        android:inputType="number"
         android:textColor="@color/black"
-        />
+        android:textColorHint="@color/black" />
 
     <TextView
         android:textColor="@color/white"
@@ -147,7 +175,7 @@
     <Button
         android:id="@+id/addToList"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/indexbutton"
         android:letterSpacing="0.2"

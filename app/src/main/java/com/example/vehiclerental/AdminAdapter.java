@@ -39,15 +39,13 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Admin admin = movie.get(position);
-        if(admin.getAdminName() == null){
-            holder.vehicleName.setText("Not found");
-        }
         holder.vehicleName.setText(movie.get(position).getAdminName());
         holder.vehicleSource.setText(movie.get(position).getSource());
         holder.vehicleDestination.setText(movie.get(position).getDestination());
         holder.rentalTime.setText(movie.get(position).getRentalTime() + " Days");
         holder.rating_starAdmin.setRating(Float.parseFloat(movie.get(position).getAdminRating()));
         holder.firebase_id.setText(movie.get(position).getFirebase_id());
+        holder.dates.setText(movie.get(position).getDates());
         Picasso.get().load(movie.get(position).getImageAdmin()).into(holder.vehicleImage);
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +59,7 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.ViewHolder> 
                 AdminVehicleList.add(admin.getAdminRating());
                 AdminVehicleList.add(admin.getRentalTime());
                 AdminVehicleList.add(admin.getAdminId());
+                AdminVehicleList.add(admin.getDates());
                 Intent in  = new Intent(context, AdminDetail.class);
                 in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 in.putStringArrayListExtra("vehicles_Rental",AdminVehicleList);
@@ -76,7 +75,7 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView vehicleImage;
-        TextView vehicleName, vehicleSource, vehicleDestination, rentalTime, firebase_id;
+        TextView vehicleName, vehicleSource, vehicleDestination, rentalTime, firebase_id,dates;
         RatingBar rating_starAdmin;
         RelativeLayout relativeLayout;
         public ViewHolder(View itemView) {
@@ -88,6 +87,7 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.ViewHolder> 
             rentalTime = itemView.findViewById(R.id.rentalTime);
             firebase_id = itemView.findViewById(R.id.firebaseID);
             rating_starAdmin = itemView.findViewById(R.id.rating_starAdmin);
+            dates = itemView.findViewById(R.id.date);
             relativeLayout = itemView.findViewById(R.id.Admin_layout);
         }
     }

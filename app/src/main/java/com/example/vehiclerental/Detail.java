@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -22,6 +23,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -57,6 +59,7 @@ import com.yinglan.shadowimageview.ShadowImageView;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -85,12 +88,13 @@ public class Detail extends AppCompatActivity {
     LocationRequest locationRequest;
     ImageView img;
     AutoCompleteTextView autoCompleteTextView, autoCompleteTextViewSrc;
-    EditText vehicleRentalDays;
+    EditText vehicleRentalDays, pickDate;
     TextView txtName, txtDescription, txtType, txtPhoneNum, titleDetail, txtCategory;
     RatingBar txtRating;
-    String title, description, imageUrl, rating, type, phone, vehicleCategory, destination_box, rentalTime, userID, srcLocation;
+    String title, description, imageUrl, rating, type, phone, vehicleCategory, destination_box, rentalTime, userID, srcLocation, dates, datePicked;
     Button addToList;
     private FirebaseAuth firebaseAuth;
+    DatePickerDialog.OnDateSetListener onDateSetListener;
 
 
     @SuppressLint("SetTextI18n")
@@ -109,6 +113,7 @@ public class Detail extends AppCompatActivity {
         txtRating = findViewById(R.id.rating_star);
         txtPhoneNum = findViewById(R.id.txtPhoneNum);
         txtCategory = findViewById(R.id.category);
+        pickDate = findViewById(R.id.datePicker);
         txtType = findViewById(R.id.txtType);
         txtDescription = findViewById(R.id.txtDesc);
 
@@ -132,6 +137,32 @@ public class Detail extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         userID = firebaseAuth.getCurrentUser().getUid();
 
+
+
+        final Calendar calendar = Calendar.getInstance();
+        final int year = calendar.get(Calendar.YEAR);
+        final int months = calendar.get(Calendar.MONTH);
+        final int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+
+        pickDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerDialog dialog = new DatePickerDialog(Detail.this, onDateSetListener,year,months,day);
+                dialog.show();
+            }
+        });
+
+        onDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month = month+1;
+                dates = dayOfMonth+"/"+month+"/"+year;
+                pickDate.setText(dates);
+            }
+        };
+
+
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
 
@@ -140,6 +171,13 @@ public class Detail extends AppCompatActivity {
             public void onClick(View view) {
                 destination_box = autoCompleteTextView.getText().toString();
                 rentalTime = vehicleRentalDays.getText().toString().trim();
+                datePicked = pickDate.getText().toString();
+                Toast.makeText(getApplicationContext(),"date is :" + datePicked,Toast.LENGTH_SHORT).show();
+
+                if(datePicked.isEmpty()){
+                    pickDate.setError("Please select the date for your journey");
+                    return;
+                }
 
                 if (destination_box.isEmpty()) {
                     autoCompleteTextView.setError("Please enter your destination");
@@ -150,6 +188,8 @@ public class Detail extends AppCompatActivity {
                     vehicleRentalDays.setError("Please enter for how many days you want to rent a vehicle");
                     return;
                 }
+
+
 
                 int rent = Integer.parseInt(rentalTime);
 
@@ -167,6 +207,7 @@ public class Detail extends AppCompatActivity {
 
                     @Override
                     public void onResponse(String response) {
+
                         autoCompleteTextView.setText("");
                         vehicleRentalDays.setText("");
                     }
@@ -185,6 +226,7 @@ public class Detail extends AppCompatActivity {
                         params.put("rating", rating);
                         params.put("source", srcLocation);
                         params.put("destination", destination_box);
+                        params.put("date",datePicked);
                         params.put("days", rentalTime);
                         params.put("uid", userID);
                         return params;
@@ -195,8 +237,6 @@ public class Detail extends AppCompatActivity {
                 requestQueue.add(request);
 
                 Toast.makeText(getApplicationContext(), "Wait for admin Approval", Toast.LENGTH_SHORT).show();
-                finishAffinity();
-                startActivity(new Intent(getApplicationContext(),UserPage.class));
             }
         });
 
@@ -291,6 +331,10 @@ public class Detail extends AppCompatActivity {
             }
         }
     }
+
+
+
+
 
 
 

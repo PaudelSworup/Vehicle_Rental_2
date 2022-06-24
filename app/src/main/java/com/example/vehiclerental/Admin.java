@@ -7,6 +7,7 @@ public class Admin {
     private String imageAdmin;
     private String source;
     private String destination;
+    private String dates;
     private String rentalTime;
     private String firebase_id;
 
@@ -67,6 +68,14 @@ public class Admin {
 
     public void setDestination(String destination) {
         this.destination = destination;
+    }
+
+    public String getDates() {
+        return dates;
+    }
+
+    public void setDates(String dates) {
+        this.dates = dates;
     }
 
     public String getRentalTime() {

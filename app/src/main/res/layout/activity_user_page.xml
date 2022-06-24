@@ -17,7 +17,8 @@
         android:id="@+id/navigationview"
         app:headerLayout="@layout/header"
         app:menu="@menu/sidemenu"
-        android:layout_gravity="start"/>
+        android:layout_gravity="start">
+    </com.google.android.material.navigation.NavigationView>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -61,7 +62,9 @@
             app:sliderIndicatorSelectedColor="#5A5A5A"
             app:sliderIndicatorUnselectedColor="#FFF"
             app:sliderScrollTimeInSec="2"
-            app:sliderStartAutoCycle="true" />
+            app:sliderStartAutoCycle="true" >
+
+        </com.smarteist.autoimageslider.SliderView>
 
         <LinearLayout
               android:id="@+id/linearLayout"
@@ -91,6 +94,7 @@
         </LinearLayout>
 
 
-      </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

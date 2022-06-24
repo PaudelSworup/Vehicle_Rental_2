@@ -123,7 +123,6 @@ public class AdminPanel extends AppCompatActivity implements NavigationView.OnNa
                             Toast.makeText(getApplicationContext(),"User didn't request any Vehicle",Toast.LENGTH_SHORT).show();
                             return;
                         }else {
-
                             try {
                                 String res = response.substring(response.indexOf("{"), response.lastIndexOf("}") + 1);
                                 JSONObject jsonObject = new JSONObject(res);
@@ -139,6 +138,7 @@ public class AdminPanel extends AppCompatActivity implements NavigationView.OnNa
                                         admin.setAdminRating(jsonObject1.getString("rating").toString());
                                         admin.setSource(jsonObject1.getString("source").toString());
                                         admin.setDestination(jsonObject1.getString("destination").toString());
+                                        admin.setDates(jsonObject1.getString("pickup_date").toString());
                                         admin.setRentalTime(jsonObject1.getString("rentalday").toString());
                                         admin.setFirebase_id(jsonObject1.getString("firebase_id").toString());
                                         vehicles.add(admin);

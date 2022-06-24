@@ -45,7 +45,7 @@
         <entry key="..\:/VehicalRental/app/src/main/res/drawable/ic_baseline_car_rental_24.xml" value="0.236" />
         <entry key="..\:/VehicalRental/app/src/main/res/layout/activity_admin_detail.xml" value="0.25" />
         <entry key="..\:/VehicalRental/app/src/main/res/layout/activity_admin_panel.xml" value="0.24547101449275363" />
-        <entry key="..\:/VehicalRental/app/src/main/res/layout/activity_detail.xml" value="0.264" />
+        <entry key="..\:/VehicalRental/app/src/main/res/layout/activity_detail.xml" value="0.22530996152201796" />
         <entry key="..\:/VehicalRental/app/src/main/res/layout/activity_index.xml" value="0.24547101449275363" />
         <entry key="..\:/VehicalRental/app/src/main/res/layout/activity_indexuser.xml" value="0.24547101449275363" />
         <entry key="..\:/VehicalRental/app/src/main/res/layout/activity_login.xml" value="0.24547101449275363" />
@@ -53,9 +53,12 @@
         <entry key="..\:/VehicalRental/app/src/main/res/layout/activity_register.xml" value="0.24547101449275363" />
         <entry key="..\:/VehicalRental/app/src/main/res/layout/activity_user_dashboard.xml" value="0.24547101449275363" />
         <entry key="..\:/VehicalRental/app/src/main/res/layout/activity_user_page.xml" value="0.24547101449275363" />
+        <entry key="..\:/VehicalRental/app/src/main/res/layout/activity_user_request.xml" value="0.22530996152201796" />
         <entry key="..\:/VehicalRental/app/src/main/res/layout/admin_list.xml" value="0.24547101449275363" />
         <entry key="..\:/VehicalRental/app/src/main/res/layout/custom_list_layout.xml" value="0.24547101449275363" />
+        <entry key="..\:/VehicalRental/app/src/main/res/layout/header.xml" value="0.22530996152201796" />
         <entry key="..\:/VehicalRental/app/src/main/res/layout/slide_item.xml" value="0.11944444444444445" />
+        <entry key="..\:/VehicalRental/app/src/main/res/layout/user_list.xml" value="0.25" />
         <entry key="..\:/VehicalRental/app/src/main/res/menu/adminmenu.xml" value="0.27447916666666666" />
         <entry key="..\:/VehicalRental/app/src/main/res/menu/sidemenu.xml" value="0.27447916666666666" />
       </map>

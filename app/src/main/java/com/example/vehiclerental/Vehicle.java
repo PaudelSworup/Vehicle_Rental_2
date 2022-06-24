@@ -10,7 +10,6 @@ package com.example.vehiclerental;
     private String category;
 
 
-
     public Vehicle(){}
     public Vehicle(String name, String image){
         this.name = name;
@@ -73,4 +72,5 @@ package com.example.vehiclerental;
         this.image = image;
     }
 
-}
+
+ }

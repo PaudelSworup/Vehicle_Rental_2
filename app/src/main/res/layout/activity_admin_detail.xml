@@ -104,22 +104,22 @@
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/firebaseAdmin"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_below="@+id/oneRating"-->
-<!--                android:gravity="center_horizontal"-->
-<!--                android:text="x6oA43kLFia01iIrD4EZneR7x4l2"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="15sp" />-->
+            <TextView
+                android:id="@+id/adminDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/oneRating"
+                android:gravity="center_horizontal"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="15sp" />
 
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="35dp"
             android:layout_below="@id/adminImage"
             android:orientation="vertical">
 
