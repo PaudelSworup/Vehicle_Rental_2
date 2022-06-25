@@ -98,6 +98,7 @@ public class UserRequest extends AppCompatActivity {
                                 users.setUserName(jsonObject1.getString("name").toString());
                                 users.setUserDestination(jsonObject1.getString("destination").toString());
                                 users.setUserRental(jsonObject1.getString("rental_days").toString());
+                                users.setUserAmount(jsonObject1.getString("amount").toString());
                                 jsonObj = jsonObject1.getString("fid").toString();
                                 if(userID.equals(jsonObj)){
                                     vehicles.add(users);

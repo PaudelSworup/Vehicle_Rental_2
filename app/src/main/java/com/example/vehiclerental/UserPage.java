@@ -149,6 +149,12 @@ public class UserPage extends AppCompatActivity implements NavigationView.OnNavi
 
         }
 
+        if(id == R.id.profile_menu){
+            Toast.makeText(UserPage.this, "profile is clicked", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
+
+        }
+
         if (id == R.id.logout_menu) {
             Toast.makeText(UserPage.this, "logout is clicked", Toast.LENGTH_SHORT).show();
             firebaseAuth.signOut();

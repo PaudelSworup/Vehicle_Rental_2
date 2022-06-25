@@ -47,7 +47,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginVertical="30dp"
             android:background="@drawable/logo"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             app:civ_border_color="@color/black"
             app:civ_border_width="3dp"
             app:layout_constraintBottom_toTopOf="@+id/vehicleName"

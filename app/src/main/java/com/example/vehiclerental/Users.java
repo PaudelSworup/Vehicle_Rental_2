@@ -9,6 +9,7 @@ public class Users {
     private String userRental;
     private String userDate;
     private String userFid;
+    private String userAmount;
 
 
     public Users(){}
@@ -59,5 +60,13 @@ public class Users {
 
     public void setUserFid(String userFid) {
         this.userFid = userFid;
+    }
+
+    public String getUserAmount() {
+        return userAmount;
+    }
+
+    public void setUserAmount(String userAmount) {
+        this.userAmount = userAmount;
     }
 }

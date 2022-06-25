@@ -1,11 +1,11 @@
 package com.example.vehiclerental;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
@@ -36,13 +37,31 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Users u = new Users();
+        Users u = movie.get(position);
         holder.vehicleName.setText(movie.get(position).getUserName());
         holder.vehicleDestination.setText(movie.get(position).getUserDestination());
         holder.rentalTime.setText(movie.get(position).getUserRental() + " Days");
         holder.dates.setText(movie.get(position).getUserDate());
         holder.firebase_id.setText(movie.get(position).getUserFid());
+        holder.userAmount.setText("Your amount is "+movie.get(position).getUserAmount());
         Picasso.get().load(movie.get(position).getUserImage()).into(holder.userImage);
+       holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               ArrayList<String> userVehicleList =new ArrayList<>();
+               userVehicleList.add(u.getUserName());
+               userVehicleList.add(u.getUserImage());
+               userVehicleList.add(u.getUserDate());
+               userVehicleList.add(u.getUserAmount());
+               userVehicleList.add(u.getUserDestination());
+               Intent in  = new Intent(context, UserDetail.class);
+               in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+               in.putStringArrayListExtra("vehicles",userVehicleList);
+               context.startActivity(in);
+           }
+       });
+
+
 
     }
 
@@ -54,7 +73,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView userImage;
-        TextView vehicleName,  vehicleDestination, rentalTime, firebase_id,dates,approved;
+        TextView vehicleName,  vehicleDestination, rentalTime, firebase_id,dates,approved,userAmount;
+        RelativeLayout relativeLayout;
         public ViewHolder(View itemView) {
             super(itemView);
             vehicleName = itemView.findViewById(R.id.UserNameTxt);
@@ -63,7 +83,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             rentalTime = itemView.findViewById(R.id.UserRentalTime);
             firebase_id = itemView.findViewById(R.id.UserFirebaseID);
             dates = itemView.findViewById(R.id.UserDate);
+            userAmount = itemView.findViewById(R.id.userMoney);
             approved = itemView.findViewById(R.id.approvedText);
+            relativeLayout = itemView.findViewById(R.id.userDetail_layout);
 
 
         }

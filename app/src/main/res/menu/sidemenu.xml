@@ -17,6 +17,11 @@
             android:icon="@drawable/ic_baseline_view_list_24"
             android:title="@string/list" />
 
+        <item
+            android:id="@+id/profile_menu"
+            android:icon="@drawable/ic_baseline_supervised_user_circle_24"
+            android:title="profile" />
+
     </group>
 
     <group android:checkableBehavior="single">

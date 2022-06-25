@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -25,9 +26,10 @@ import java.util.Map;
 
 public class AdminDetail extends AppCompatActivity {
     ImageView adminImage;
+    EditText amt;
     TextView carName, carSource, carDestination, rating, carRental,date;
     Button accept, reject;
-    String name,source,dest,rate,rent, imgUrl, id, dates, fid;
+    String name,source,dest,rate,rent, imgUrl, id, dates, fid,amount;
 //    String url = "http://192.168.1.68/Api/Delete.php";
 
     String url = "http://192.168.1.70/Api/Delete.php";
@@ -44,6 +46,7 @@ public class AdminDetail extends AppCompatActivity {
         rating = findViewById(R.id.oneRating);
         carRental = findViewById(R.id.adminRental);
         accept = findViewById(R.id.accept);
+        amt = findViewById(R.id.AdminAmt);
         date = findViewById(R.id.adminDate);
         reject = findViewById(R.id.reject);
 
@@ -109,6 +112,12 @@ public class AdminDetail extends AppCompatActivity {
     }
 
     private void InsertData(){
+        amount = amt.getText().toString();
+        if(amount.isEmpty()){
+            amt.setError("amount is required!");
+            return;
+        }
+
         Toast.makeText(AdminDetail.this,"Accepting...",Toast.LENGTH_LONG).show();
         StringRequest request = new StringRequest(Request.Method.POST, insertURL, new Response.Listener<String>() {
             @Override
@@ -132,6 +141,7 @@ public class AdminDetail extends AppCompatActivity {
                 params.put("rentalDays",rent);
                 params.put("date",dates);
                 params.put("fid",fid);
+                params.put("amt",amount);
                 return params;
 
 

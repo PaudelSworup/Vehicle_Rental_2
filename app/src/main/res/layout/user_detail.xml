@@ -9,13 +9,13 @@
     >
 
     <RelativeLayout
-        android:id="@+id/userDetail_layout"
+        android:id="@+id/user_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardBackgroundColor="@color/grid">
 
         <ImageView
-            android:id="@+id/UserImage"
+            android:id="@+id/userDetailImage"
             android:layout_width="150dp"
             android:layout_height="165dp"
             android:scaleType="fitXY"
@@ -26,11 +26,11 @@
             android:layout_height="175dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_toEndOf="@id/UserImage">
+            android:layout_toEndOf="@id/userDetailImage">
 
 
             <TextView
-                android:id="@+id/UserNameTxt"
+                android:id="@+id/carName"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -46,10 +46,10 @@
 
 
             <TextView
-                android:id="@+id/UserDestination"
+                android:id="@+id/carDest"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/UserNameTxt"
+                android:layout_below="@id/carName"
                 android:textAlignment="textStart"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="4dp"
@@ -60,10 +60,10 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/UserRentalTime"
+                android:id="@+id/carDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/UserDestination"
+                android:layout_below="@id/carDest"
                 android:textAlignment="textStart"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="4dp"
@@ -73,63 +73,36 @@
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/UserFirebaseID"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_below="@id/UserRentalTime"
-                android:textAlignment="textStart"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="4dp"
-                android:ellipsize="end"
-                android:fontFamily="sans-serif-medium"
-                android:maxLines="2"
-                android:textColor="@color/white"
-                android:textSize="13sp" />
 
             <TextView
-                android:id="@+id/userMoney"
+                android:id="@+id/carAmt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/UserFirebaseID"
+                android:layout_below="@id/carDate"
                 android:layout_marginTop="4dp"
                 android:textColor="@color/white"
                 android:textSize="13sp" />
 
-
-            <TextView
-                android:id="@+id/UserDate"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_below="@id/userMoney"
-                android:textAlignment="textStart"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="4dp"
-                android:ellipsize="end"
-                android:fontFamily="sans-serif-medium"
-                android:maxLines="2"
-                android:textColor="@color/white"
-                android:textSize="13sp"/>
 
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_below="@id/UserImage"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/userDetailImage"
             android:orientation="vertical">
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="2dp"
                 android:background="@color/white">
 
             </View>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="100dp"
                 android:orientation="horizontal"
                 android:weightSum="4">
 
@@ -145,31 +118,38 @@
                     tools:ignore="UselessParent">
 
 
-                    <TextView
-                        android:id="@+id/approvedText"
+                    <Button
+                        android:id="@+id/UserAccept"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
-                        android:textAlignment="center"
-                        android:text="Your request has been approved!"
+                        android:background="@color/success"
                         android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textSize="16sp"
+                        android:text="@string/Accept"/>
 
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
+                        <Button
+                            android:id="@+id/UserReject"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/toolbar_color"
+                            android:text="@string/Reject"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.793"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
-
-
             </LinearLayout>
 
         </LinearLayout>
-
     </RelativeLayout>
 
-
 </androidx.cardview.widget.CardView>
-
-
-
