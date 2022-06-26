@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:gravity="center_horizontal"
-    android:background="@color/black"
-    android:orientation="vertical"
-    android:padding="30dp"
-    tools:context=".Detail">
-
-
-    <androidx.cardview.widget.CardView
+    app:layout_editor_absoluteX="1dp"
+    app:layout_editor_absoluteY="1dp"
+    android:fillViewport="true"
+    >
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="182dp"
-        app:cardElevation="50dp"
-        app:cardBackgroundColor="@color/black"
-        app:cardCornerRadius="20dp">
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:background="@color/black"
+        android:orientation="vertical"
+        android:padding="30dp"
+        tools:context=".Detail">
 
-        <RelativeLayout
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="182dp"
+            app:cardElevation="50dp"
+            app:cardBackgroundColor="@color/black"
+            app:cardCornerRadius="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/imageView"
@@ -33,157 +41,331 @@
 
             <TextView
                 android:id="@+id/txtName"
-                android:layout_width="wrap_content"
-                android:layout_below="@+id/imageView"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="cars"
-                android:textAlignment="textStart"
+                android:textAlignment="center"
                 android:layout_marginTop="5dp"
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:fontFamily="sans-serif-black"/>
 
 
-            <EditText
-                android:id="@+id/datePicker"
-                android:layout_width="139dp"
-                android:layout_height="61dp"
-                android:layout_below="@id/imageView"
-                android:layout_marginLeft="139dp"
-                android:layout_marginTop="1dp"
-                android:layout_toRightOf="@+id/txtName"
-                android:inputType="date"
-                android:completionThreshold="1"
-                android:hint="@string/pickDate"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white" />
-
             <RatingBar
                 android:id="@+id/rating_star"
                 style="?android:attr/ratingBarStyleSmall"
                 android:layout_width="wrap_content"
-                android:layout_gravity="start"
-                android:layout_below="@+id/txtName"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:focusable="true"
                 android:isIndicator="true"
                 android:numStars="5"
                 android:stepSize="0.5"/>
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <AutoCompleteTextView
+            android:id="@+id/destination"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/input"
+            android:completionThreshold="1"
+            android:hint="@string/dest"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+
+        <EditText
+            android:id="@+id/datePicker"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/imageView"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/txtName"
+            android:background="@drawable/input"
+            android:completionThreshold="1"
+            android:hint="@string/pickDate"
+            android:inputType="date"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+        <EditText
+            android:id="@+id/days"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/input"
+            android:hint="@string/days"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+        <TextView
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:id="@+id/detailTitle"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/txtDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-light"/>
+
+        <TextView
+            android:id="@+id/txtType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif" />
+
+        <TextView
+            android:id="@+id/txtPhoneNum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif"
+            />
+        <TextView
+            android:id="@+id/category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif" />
+
+
+        <Button
+            android:id="@+id/addToList"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/indexbutton"
+            android:letterSpacing="0.2"
+            android:text="@string/addToList"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/txtPhoneNum"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </LinearLayout>
+
+</ScrollView>
 
 
 
-        </RelativeLayout>
-
-
-    </androidx.cardview.widget.CardView>
-
-    <AutoCompleteTextView
-        android:id="@+id/destination"
-        android:layout_width="262dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/input"
-        android:completionThreshold="1"
-        android:hint="@string/dest"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black" />
-
-    <!--    <AutoCompleteTextView-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:id="@+id/destination"-->
-    <!--        android:hint="@string/dest"-->
-    <!--        android:textColorHint="@color/black"-->
-    <!--        android:layout_marginTop="10dp"-->
-    <!--        android:background="@drawable/input"-->
-    <!--        android:textColor="@color/black"-->
-    <!--        android:completionThreshold="1"/>-->
-
-    <EditText
-        android:id="@+id/days"
-        android:layout_width="269dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/input"
-        android:hint="@string/days"
-        android:inputType="number"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black" />
-
-    <TextView
-        android:textColor="@color/white"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:id="@+id/detailTitle"
-        android:layout_marginTop="15dp"
-        android:textSize="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/txtDesc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="13sp"
-        android:textColor="@color/white"
-        android:fontFamily="sans-serif-light"/>
-
-    <TextView
-        android:id="@+id/txtType"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textSize="18sp"
-        android:textColor="@color/white"
-        android:fontFamily="sans-serif" />
-
-    <TextView
-        android:id="@+id/txtPhoneNum"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textSize="18sp"
-        android:textColor="@color/white"
-        android:fontFamily="sans-serif"
-        />
-    <TextView
-        android:id="@+id/category"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textSize="18sp"
-        android:textColor="@color/white"
-        android:fontFamily="sans-serif" />
 
 
 
 
-    <!--    <EditText-->
-    <!--        android:id="@+id/destination"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="20dp"-->
-    <!--        android:textSize="20sp"-->
-    <!--        android:layout_margin="10dp"-->
-    <!--        android:hint="@string/dest"-->
-    <!--        android:textColor="@color/white"-->
-    <!--        android:textColorHint="@color/white"-->
-    <!--        android:fontFamily="sans-serif"-->
-    <!--        />-->
 
 
-    <Button
-        android:id="@+id/addToList"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/indexbutton"
-        android:letterSpacing="0.2"
-        android:text="@string/addToList"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/txtPhoneNum"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
-</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    android:gravity="center_horizontal"-->
+<!--    android:background="@color/black"-->
+<!--    android:orientation="vertical"-->
+<!--    android:padding="30dp"-->
+<!--    tools:context=".Detail">-->
+
+
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="182dp"-->
+<!--        app:cardElevation="50dp"-->
+<!--        app:cardBackgroundColor="@color/black"-->
+<!--        app:cardCornerRadius="20dp">-->
+
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="125dp"-->
+<!--                android:src="@drawable/bg"-->
+<!--                android:scaleType="fitXY"-->
+<!--                tools:ignore="ContentDescription" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/txtName"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_below="@+id/imageView"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="cars"-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:fontFamily="sans-serif-black"/>-->
+
+
+<!--            <EditText-->
+<!--                android:id="@+id/datePicker"-->
+<!--                android:layout_width="144dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/imageView"-->
+<!--                android:layout_marginLeft="89dp"-->
+<!--                android:layout_marginTop="6dp"-->
+<!--                android:layout_toRightOf="@+id/txtName"-->
+<!--                android:background="@drawable/input"-->
+<!--                android:completionThreshold="1"-->
+<!--                android:hint="@string/pickDate"-->
+<!--                android:inputType="date"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textColorHint="@color/black" />-->
+
+<!--            <RatingBar-->
+<!--                android:id="@+id/rating_star"-->
+<!--                style="?android:attr/ratingBarStyleSmall"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_gravity="start"-->
+<!--                android:layout_below="@+id/txtName"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="4dp"-->
+<!--                android:focusable="true"-->
+<!--                android:isIndicator="true"-->
+<!--                android:numStars="5"-->
+<!--                android:stepSize="0.5"/>-->
+
+
+
+<!--        </RelativeLayout>-->
+
+
+<!--    </androidx.cardview.widget.CardView>-->
+
+<!--    <AutoCompleteTextView-->
+<!--        android:id="@+id/destination"-->
+<!--        android:layout_width="262dp"-->
+<!--        android:layout_height="49dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:background="@drawable/input"-->
+<!--        android:completionThreshold="1"-->
+<!--        android:hint="@string/dest"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textColorHint="@color/black" />-->
+
+<!--    &lt;!&ndash;    <AutoCompleteTextView&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:id="@+id/destination"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:hint="@string/dest"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:textColorHint="@color/black"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:layout_marginTop="10dp"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:background="@drawable/input"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:textColor="@color/black"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:completionThreshold="1"/>&ndash;&gt;-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/days"-->
+<!--        android:layout_width="269dp"-->
+<!--        android:layout_height="49dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:background="@drawable/input"-->
+<!--        android:hint="@string/days"-->
+<!--        android:inputType="number"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textColorHint="@color/black" />-->
+
+<!--    <TextView-->
+<!--        android:textColor="@color/white"-->
+<!--        android:fontFamily="sans-serif-condensed-medium"-->
+<!--        android:id="@+id/detailTitle"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:textSize="20sp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/txtDesc"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="13sp"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:fontFamily="sans-serif-light"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/txtType"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:fontFamily="sans-serif" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/txtPhoneNum"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:fontFamily="sans-serif"-->
+<!--        />-->
+<!--    <TextView-->
+<!--        android:id="@+id/category"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:fontFamily="sans-serif" />-->
+
+
+<!--    <Button-->
+<!--        android:id="@+id/addToList"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:background="@drawable/indexbutton"-->
+<!--        android:letterSpacing="0.2"-->
+<!--        android:text="@string/addToList"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/txtPhoneNum"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+<!--</LinearLayout>-->

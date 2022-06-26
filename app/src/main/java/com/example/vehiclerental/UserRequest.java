@@ -16,6 +16,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,6 +24,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class UserRequest extends AppCompatActivity {
     RecyclerView recyclerView;
@@ -42,6 +44,7 @@ public class UserRequest extends AppCompatActivity {
     UserAdapter adapter;
     LinearLayoutManager llm ;
     private FirebaseAuth firebaseAuth;
+    FirebaseUser user;
     String userID;
     String jsonObj;
 
@@ -53,7 +56,8 @@ public class UserRequest extends AppCompatActivity {
         setContentView(R.layout.activity_user_request);
         recyclerView = findViewById(R.id.userRequest);
         firebaseAuth = FirebaseAuth.getInstance();
-        userID = firebaseAuth.getCurrentUser().getUid();
+        user = firebaseAuth.getCurrentUser();
+        userID = user.getUid();
         Toast.makeText(getApplicationContext(),userID,Toast.LENGTH_SHORT).show();
         vehicles = new ArrayList<>();
         adapter = new UserAdapter(getApplicationContext(),vehicles);
@@ -102,7 +106,7 @@ public class UserRequest extends AppCompatActivity {
                                 jsonObj = jsonObject1.getString("fid").toString();
                                 if(userID.equals(jsonObj)){
                                     vehicles.add(users);
-                                }else Toast.makeText(getApplicationContext(),"User request has not been approved yet",Toast.LENGTH_SHORT).show();
+                                }else  Toast.makeText(getApplicationContext(),"User request has not been approved yet",Toast.LENGTH_SHORT).show();
 
                             }
                             adapter.notifyDataSetChanged();

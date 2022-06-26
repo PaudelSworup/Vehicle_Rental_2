@@ -28,7 +28,7 @@
     <string name="source">Enter your location</string>
     <string name="cat">Enter a category</string>
     <string name="days">Enter days </string>
-    <string name="pickDate">Pick a date</string>
+    <string name="pickDate">Double click to pick date</string>
 
     <!--    registration-->
     <string name="name">Name</string>

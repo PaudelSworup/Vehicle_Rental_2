@@ -109,7 +109,7 @@ public class UserPage extends AppCompatActivity implements NavigationView.OnNavi
         user = firebaseAuth.getCurrentUser();
         db = FirebaseFirestore.getInstance();
         currentId = user.getUid();
-        getFirestoreData();
+//        getFirestoreData();
         navigationView = findViewById(R.id.navigationview);
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
@@ -206,18 +206,18 @@ public class UserPage extends AppCompatActivity implements NavigationView.OnNavi
         queue.add(request);
     }
 
-    private void getFirestoreData() {
-        reference = db.collection("users").document(currentId);
-        reference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if(task.getResult().exists()){
-                    imageURL = task.getResult().getString("imageLink");
-                    Toast.makeText(getApplicationContext(),"image"+imageURL,Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
+//    private void getFirestoreData() {
+//        reference = db.collection("users").document(currentId);
+//        reference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                if(task.getResult().exists()){
+//                    imageURL = task.getResult().getString("imageLink");
+//                    Toast.makeText(getApplicationContext(),"image"+imageURL,Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+//    }
 }
 
 

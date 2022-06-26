@@ -37,31 +37,29 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Users u = movie.get(position);
-        holder.vehicleName.setText(movie.get(position).getUserName());
-        holder.vehicleDestination.setText(movie.get(position).getUserDestination());
-        holder.rentalTime.setText(movie.get(position).getUserRental() + " Days");
-        holder.dates.setText(movie.get(position).getUserDate());
-        holder.firebase_id.setText(movie.get(position).getUserFid());
-        holder.userAmount.setText("Your amount is "+movie.get(position).getUserAmount());
-        Picasso.get().load(movie.get(position).getUserImage()).into(holder.userImage);
-       holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               ArrayList<String> userVehicleList =new ArrayList<>();
-               userVehicleList.add(u.getUserName());
-               userVehicleList.add(u.getUserImage());
-               userVehicleList.add(u.getUserDate());
-               userVehicleList.add(u.getUserAmount());
-               userVehicleList.add(u.getUserDestination());
-               Intent in  = new Intent(context, UserDetail.class);
-               in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-               in.putStringArrayListExtra("vehicles",userVehicleList);
-               context.startActivity(in);
-           }
-       });
-
-
+            Users u = movie.get(position);
+            holder.vehicleName.setText(movie.get(position).getUserName());
+            holder.vehicleDestination.setText(movie.get(position).getUserDestination());
+            holder.rentalTime.setText(movie.get(position).getUserRental() + " Days");
+            holder.dates.setText(movie.get(position).getUserDate());
+            holder.firebase_id.setText(movie.get(position).getUserFid());
+            holder.userAmount.setText("Your amount is "+movie.get(position).getUserAmount());
+            Picasso.get().load(movie.get(position).getUserImage()).into(holder.userImage);
+            holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ArrayList<String> userVehicleList =new ArrayList<>();
+                    userVehicleList.add(u.getUserName());
+                    userVehicleList.add(u.getUserImage());
+                    userVehicleList.add(u.getUserDate());
+                    userVehicleList.add(u.getUserAmount());
+                    userVehicleList.add(u.getUserDestination());
+                    Intent in  = new Intent(context, UserDetail.class);
+                    in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    in.putStringArrayListExtra("vehicles",userVehicleList);
+                    context.startActivity(in);
+                }
+            });
 
     }
 
@@ -86,10 +84,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             userAmount = itemView.findViewById(R.id.userMoney);
             approved = itemView.findViewById(R.id.approvedText);
             relativeLayout = itemView.findViewById(R.id.userDetail_layout);
-
-
         }
     }
-
-
 }

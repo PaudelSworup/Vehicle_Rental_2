@@ -160,7 +160,6 @@ public class Index extends AppCompatActivity implements NavigationView.OnNavigat
         int id = item.getItemId();
         if(id == R.id.home_menu){
             Toast.makeText(Index.this, "home is clicked",Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(getApplicationContext(),Index.class));
         }
 
         if(id == R.id.dashboard_menu){

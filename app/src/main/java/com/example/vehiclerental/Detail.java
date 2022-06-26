@@ -209,6 +209,7 @@ public class Detail extends AppCompatActivity {
                     public void onResponse(String response) {
 
                         autoCompleteTextView.setText("");
+                        pickDate.setText("");
                         vehicleRentalDays.setText("");
                     }
                 }, new Response.ErrorListener() {
