@@ -2,6 +2,7 @@ package com.example.vehiclerental;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
@@ -46,6 +48,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             holder.userAmount.setText("Your amount is "+movie.get(position).getUserAmount());
             Picasso.get().load(movie.get(position).getUserImage()).into(holder.userImage);
             holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
+                @RequiresApi(api = Build.VERSION_CODES.O)
                 @Override
                 public void onClick(View view) {
                     ArrayList<String> userVehicleList =new ArrayList<>();
@@ -54,6 +57,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
                     userVehicleList.add(u.getUserDate());
                     userVehicleList.add(u.getUserAmount());
                     userVehicleList.add(u.getUserDestination());
+                    userVehicleList.add(u.getUserFid());
+                    userVehicleList.add(u.getUserID());
                     Intent in  = new Intent(context, UserDetail.class);
                     in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     in.putStringArrayListExtra("vehicles",userVehicleList);

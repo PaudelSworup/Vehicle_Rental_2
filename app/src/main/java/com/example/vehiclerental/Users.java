@@ -3,6 +3,7 @@ package com.example.vehiclerental;
 import com.google.firebase.firestore.auth.User;
 
 public class Users {
+    private String userID;
     private String userName;
     private String userImage;
     private String userDestination;
@@ -13,6 +14,14 @@ public class Users {
 
 
     public Users(){}
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
 
     public String getUserName() {
         return userName;

@@ -83,13 +83,23 @@
                 android:textColor="@color/white"
                 android:textSize="13sp" />
 
+            <EditText
+                android:id="@+id/etCarAmt"
+                android:inputType="number"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/carAmt"
+                android:background="@drawable/input"
+                android:hint="pay the money to proceed" />
+
 
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_below="@id/userDetailImage"
             android:orientation="vertical">
 

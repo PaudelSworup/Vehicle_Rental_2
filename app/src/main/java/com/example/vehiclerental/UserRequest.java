@@ -103,13 +103,14 @@ public class UserRequest extends AppCompatActivity {
                                 users.setUserDestination(jsonObject1.getString("destination").toString());
                                 users.setUserRental(jsonObject1.getString("rental_days").toString());
                                 users.setUserAmount(jsonObject1.getString("amount").toString());
+                                users.setUserID(jsonObject1.getString("id").toString());
                                 jsonObj = jsonObject1.getString("fid").toString();
-                                if(userID.equals(jsonObj)){
+                                if(userID.equals(jsonObj)) {
                                     vehicles.add(users);
-                                }else  Toast.makeText(getApplicationContext(),"User request has not been approved yet",Toast.LENGTH_SHORT).show();
-
+                                }
                             }
-                            adapter.notifyDataSetChanged();
+
+                                adapter.notifyDataSetChanged();
                         }
                     } catch (JSONException e) {
                         Log.e("error is ", "my json " + e);

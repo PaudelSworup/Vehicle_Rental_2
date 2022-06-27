@@ -118,7 +118,7 @@ public class AdminPanel extends AppCompatActivity implements NavigationView.OnNa
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onResponse(String response) {
-                        Log.d("Success", response.toString());
+                        Log.d("SuccessAdmin", String.valueOf(response.length()));
                         if(response.length() == 0){
                             Toast.makeText(getApplicationContext(),"User didn't request any Vehicle",Toast.LENGTH_SHORT).show();
                             return;
