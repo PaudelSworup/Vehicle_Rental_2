@@ -30,10 +30,11 @@ public class AdminDetail extends AppCompatActivity {
     TextView carName, carSource, carDestination, rating, carRental,date;
     Button accept, reject;
     String name,source,dest,rate,rent, imgUrl, id, dates, fid,amount;
-//    String url = "http://192.168.1.68/Api/Delete.php";
+     String url = "http://192.168.1.69/Api/Delete.php";
+    String insertURL = "http://192.168.1.69/Api/Insert.php";
 
-    String url = "http://192.168.1.70/Api/Delete.php";
-    String insertURL = "http://192.168.1.70/Api/Insert.php";
+//    String url = "http://192.168.1.70/Api/Delete.php";
+//    String insertURL = "http://192.168.1.70/Api/Insert.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

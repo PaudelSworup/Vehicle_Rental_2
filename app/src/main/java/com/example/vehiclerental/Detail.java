@@ -198,9 +198,9 @@ public class Detail extends AppCompatActivity {
                     return;
                 }
 
-                String url = "http://192.168.1.70/Api/vehicleRequest.php";
+//                String url = "http://192.168.1.70/Api/vehicleRequest.php";
 
-//                String url = "http://192.168.1.69/Api/vehicleRequest.php";
+                String url = "http://192.168.1.69/Api/vehicleRequest.php";
 
 //                    String url = "http://192.168.1.68/Api/vehicleRequest.php";
                 StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {

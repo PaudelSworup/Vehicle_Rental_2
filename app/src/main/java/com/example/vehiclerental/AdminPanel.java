@@ -40,12 +40,12 @@ public class AdminPanel extends AppCompatActivity implements NavigationView.OnNa
 //    private String imageUrl = "http://192.168.1.67/Api/images/";
 
 
-    private String JSON_URL = "http://192.168.1.70/Api/Adminget.php";
-    private String imageUrl = "http://192.168.1.70/Api/images/";
+//    private String JSON_URL = "http://192.168.1.70/Api/Adminget.php";
+//    private String imageUrl = "http://192.168.1.70/Api/images/";
 
 
-//    private String JSON_URL = "http://192.168.1.69/Api/Adminget.php";
-//    private String imageUrl = "http://192.168.1.69/Api/images/";
+    private String JSON_URL = "http://192.168.1.69/Api/Adminget.php";
+    private String imageUrl = "http://192.168.1.69/Api/images/";
 
     AdminAdapter adapter;
     LinearLayoutManager llm ;

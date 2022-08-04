@@ -6,6 +6,7 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -31,12 +32,21 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.SignInMethodQueryResult;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -51,10 +61,13 @@ TextView txtLogin;
 ActivityResultLauncher<String> imgContent;
 Button Register;
  StorageReference ref;
+ CollectionReference userRef;
  FirebaseFirestore fstore;
  FirebaseAuth fAuth;
  String userID;
  String newUri;
+ String userName, userEmail, userPhone, userPassword,email_pattern,mailCheck;
+ boolean check_email, checkRegisteredEmail;
 
 
     @Override
@@ -79,6 +92,7 @@ Button Register;
         phone = findViewById(R.id.et_phone);
         password = findViewById(R.id.et_password);
         Register = findViewById(R.id.register1);
+
 
         imgContent = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
@@ -107,7 +121,9 @@ Button Register;
        Register.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
+               getFData();
                uploadData();
+
            }
        });
 
@@ -121,15 +137,15 @@ Button Register;
 
     }
 
+
+
     private void uploadData() {
-
-        String userName = name.getText().toString();
-        String userEmail = email.getText().toString();
-        String userPhone = phone.getText().toString();
-        String userPassword = password.getText().toString();
-        String email_pattern = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
-        boolean check_email = userEmail.matches(email_pattern);
-
+        userName = name.getText().toString();
+        userEmail = email.getText().toString();
+        userPhone = phone.getText().toString();
+        userPassword = password.getText().toString();
+        email_pattern = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
+        check_email = userEmail.matches(email_pattern);
 
         if(imgUri == null){
             Context context = getApplicationContext();
@@ -146,7 +162,7 @@ Button Register;
             return;
         }else name.setError(null);
 
-        if(userEmail.isEmpty()){
+        if(userEmail.isEmpty()) {
             email.setError("Email is Required");
             return;
         }else email.setError(null);
@@ -227,9 +243,32 @@ Button Register;
 
     }
 
+
     private void selectImage() {
         imgContent.launch("image/*");
     }
+
+    private void getFData(){
+        userRef = fstore.collection("users");
+        Query query = userRef.whereEqualTo("email",email.getText().toString());
+        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+                    for (DocumentSnapshot documentSnapshot : task.getResult()){
+                        mailCheck = documentSnapshot.getString("email");
+                        if(mailCheck.equals(email.getText().toString())){
+                            Toast.makeText(getApplicationContext(),"email already exist",Toast.LENGTH_SHORT).show();
+//                            email.setError("email already exist");
+                            return;
+                        }else Log.d("user", "email is new");
+                    }
+                }
+            }
+        });
+    }
+
+
 
     private void goNext(){
         Intent in = new Intent(getApplicationContext(), Login_Activity.class);

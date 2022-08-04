@@ -34,8 +34,17 @@ public class UserDetail extends AppCompatActivity {
     EditText payment;
     Button accept,reject;
     String name, destination, date, amount, image, carRentAmount,fid,userId;
-    String url = "http://192.168.1.70/Api/transaction.php";
-    String rejectVehicleURL = "http://192.168.1.70/Api/rejectVehicle.php";
+
+
+//    String url = "http://192.168.1.70/Api/transaction.php";
+//    String rejectVehicleURL = "http://192.168.1.70/Api/rejectVehicle.php";
+
+    String url = "http://192.168.1.69/Api/transaction.php";
+    String rejectVehicleURL = "http://192.168.1.69/Api/rejectVehicle.php";
+
+
+
+
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
     LocalDateTime now = LocalDateTime.now();
 
