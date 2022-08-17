@@ -6,7 +6,7 @@ Hello viewers this project is completed and in this project login and register i
 <hr>
 #UI of the projects
 <div>
-<img src= "https://user-images.githubusercontent.com/96978659/185059300-50eb5d2a-625a-4fba-9be1-268ffaa72486.png " alt=" " width="200" height="100" />
+<img src= "https://user-images.githubusercontent.com/96978659/185059300-50eb5d2a-625a-4fba-9be1-268ffaa72486.png " alt=" " width="200" height="300" />
   
  <img src= " " alt=" " />
 </div>
